@@ -1,4 +1,4 @@
-function myFunction() {
+function mySky() {
     var d = new Date();
     var h = d.getHours();
 		
