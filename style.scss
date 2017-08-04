@@ -1,0 +1,52 @@
+@mixin prefix($declarations, $prefixes: ()) {
+	@each $property, $value in $declarations {
+		@each $prefix in $prefixes {
+			#{$property}: #{'-' + $prefix + '-' + $value};
+		}
+		// Output standard non-prefixed declaration
+		#{$value}: $property;
+	}
+}
+
+body{
+	height:100vh;
+	width:100%;
+	
+}
+
+
+
+$sky0: #00000c;
+$sky1 : linear-gradient(30deg, #020111 85%,#191621 100%);
+$sky2 : linear-gradient(30deg, #020111 60%,#20202c 100%);
+$sky3 : linear-gradient(30deg, #020111 10%,#3a3a52 100%);
+$sky4 : linear-gradient(30deg, #20202c 0%,#515175 100%);
+$sky5 : linear-gradient(30deg, #40405c 0%,#6f71aa 80%,#8a76ab 100%);
+$sky6 : linear-gradient(30deg, #4a4969 0%,#7072ab 50%,#cd82a0 100%);
+$sky7 : linear-gradient(30deg, #757abf 0%,#8583be 60%,#eab0d1 100%);
+$sky8 : linear-gradient(30deg, #82addb 0%,#ebb2b1 100%);
+$sky9 : linear-gradient(30deg, #94c5f8 1%,#a6e6ff 70%,#b1b5ea 100%);
+$sky10 : linear-gradient(30deg, #b7eaff 0%,#94dfff 100%);
+$sky11 : linear-gradient(30deg, #9be2fe 0%,#67d1fb 100%);
+$sky12 : linear-gradient(30deg, #90dffe 0%,#38a3d1 100%);
+$sky13 : linear-gradient(30deg, #57c1eb 0%,#246fa8 100%);
+$sky14 : linear-gradient(30deg, #2d91c2 0%,#1e528e 100%);
+$sky15 : linear-gradient(30deg, #4354a7 0%,#677ff4 70%,#8599f6 100%);
+$sky16 : linear-gradient(30deg, #1e528e 0%,#265889 50%,#9da671 100%);
+$sky17 : linear-gradient(30deg, #1e528e 0%,#728a7c 50%,#e9ce5d 100%);
+$sky18 : linear-gradient(30deg, #154277 0%,#576e71 30%,#e1c45e 70%,#b26339 100%);
+$sky19 : linear-gradient(30deg, #163C52 0%,#4F4F47 30%,#C5752D 60%,#B7490F 80%, #2F1107 100%);
+$sky20 : linear-gradient(30deg, #071B26 0%,#071B26 30%,#8A3B12 80%,#240E03 100%);
+$sky21 : linear-gradient(30deg, #010A10 30%,#59230B 80%,#2F1107 100%);
+$sky22 : linear-gradient(30deg, #090401 50%,#4B1D06 100%);
+$sky23 : linear-gradient(30deg, #00000c 80%,#150800 100%);
+
+@each $variant, $color in (sky1: $sky1, sky2: $sky2, sky3: $sky3, sky4: $sky4, sky5: $sky5, sky6: $sky6, sky7: $sky7, sky8: $sky8, sky9: $sky9, sky10: $sky10, sky11: $sky11, sky13: $sky13, sky14: $sky14, sky15: $sky15, sky16: $sky16, sky17: $sky17, sky18: $sky18, sky19: $sky19, sky20: $sky20, sky21: $sky21, sky22: $sky22,sky23: $sky23,sky24: $sky0, sky0: $sky0) {
+	.gradient-#{$variant} {
+		
+		@include prefix((
+			background: $color
+    ), webkit moz ms o );
+		
+	}
+}
